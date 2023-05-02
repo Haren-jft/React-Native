@@ -54,7 +54,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
+    fontFamily:'Montserrat-Medium'
   },
   imgContainer: {
     flexDirection: 'row',

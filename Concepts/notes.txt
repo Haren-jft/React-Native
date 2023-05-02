@@ -1,0 +1,5 @@
+While using async storage,first intsall it and then import it and if there is error then run
+=>cd android && ./gradlew clean command
+
+while passing data object to it ,first convert it to string using JSON.stringify() 
+and while retrieving it parse(convert) it back to object using JSON.parse()

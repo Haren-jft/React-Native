@@ -12,8 +12,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Shimmer from './components/Shimmer';
 
 const Tab = createBottomTabNavigator();
-//it is used to dismiss keyboard on any where screen tap
-
 
 const App = () => {
   return (
@@ -26,7 +24,10 @@ const App = () => {
                 iconName = focused
                   ? 'ios-information-circle'
                   : 'ios-information-circle-outline';
-              } else {
+              } else if(route.name==="Shimmer"){
+                iconName = focused ? 'ios-star' : 'ios-star-outline';
+              }
+              else{
                 iconName = focused ? 'ios-list' : 'ios-list-outline';
               }
               return <Ionicons name={iconName} size={size} color={color} />;

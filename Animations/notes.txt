@@ -1,0 +1,38 @@
+There are three threads that mainly run a React Native app:
+
+The UI thread — this is the native thread used to run Swift/Objective C in iOS devices and Java/Kotlin in Android devices, an application’s UI is manipulated solely on this thread. Here the application’s Views are rendered and users of the app can interact with the OS. Most of the heavy lifting in this thread is performed by React Native
+
+The JavaScript thread — this is the thread that executes JavaScript separately via a JavaScript engine. An application’s logic – including which Views to display and in what manner they are displayed — is usually configured here
+
+The bridge — React Native’s bridge enables communication between the UI and JS thread
+
+Now, the UI and JavaScript threads are individually fast but where performance issues occur is during the communication between both of them via the bridge. Say you are passing huge files between both threads, this could slow down performance. It’s important to keep passes between both sides of the bridge to a bare minimum to avoid any kind of performance-related issues.
+
+Because React has a virtual DOM, it renders JavaScript components asynchronously and in this process, reduces the amount of data that needs to be sent over the bridge. However, this doesn’t prevent a couple of performance issues from springing up from time to time, let’s highlight these issues and how we can fix them.
+
+useNativeDriver:
+a)if it is true=> animations are running on the main(UI) thread
+b)if it is false=> animations are running on the Js thread
+
+option a is preferrable so that JS thread can be used for other things 
+and the animation becomes very smooth but the drawback here is that not all 
+properties are animatable on the main thread.
+
+PanResponder Api-
+it allows us to detect user gestures
+
+
+transform() of any View in React Native-
+Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. 
+
+transform() accepts an array of transformation objects or space-separated string values. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
+
+The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
+
+transform([{rotateX: '45deg'}, {rotateZ: '0.785398rad'}]);
+
+
+
+
+
+
