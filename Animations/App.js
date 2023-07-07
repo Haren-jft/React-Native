@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 const App = () => {
   const value = useState(new Animated.Value(20))[0];
   const valueY = useState(new Animated.Value(0))[0];
-
+//8851343658
   const handlePress = () => {
     Animated.sequence([
       Animated.timing(value, {
@@ -41,6 +41,7 @@ const App = () => {
         });
       },
       onPanResponderMove:(ev,gesture)=>{
+        console.log({ev,gesture})
         pan.x.setValue(gesture.dx)
         pan.y.setValue(gesture.dy)
       },
